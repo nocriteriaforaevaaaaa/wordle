@@ -1,1 +1,2 @@
-A fun Word Game
+A Fun Word Game using JS,CSS and HTML
+
