@@ -7,7 +7,7 @@ var row = 0;
 var col = 0; 
 
 var gameOver = false;
-var word = "PLANT";
+var word = "SQUID";
 
 
 window.onload = function(){
