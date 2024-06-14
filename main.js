@@ -1,34 +1,27 @@
+var height=6;//total no of guesses
+var width=5;//length of the word
+var row=0;//attempted guess
+var col=0;//current letter for the attempt
 
+var gameOver=false;
+var word="PLANT";
 
-var height = 6; 
-var width = 5; 
-
-var row = 0; 
-var col = 0; 
-
-var gameOver = false;
-var word = "PLANT";
-
-
-window.onload = function(){
-    intialize();
+window.onload=function()
+{
+    initialize();
 }
 
+function initialize(){
 
-function intialize() {
-
-    
-    for (let r = 0; r < height; r++) {
-        for (let c = 0; c < width; c++) {
-            
-            let tile = document.createElement("span");
-            tile.id = r.toString() + "-" + c.toString();
+    for(let r=0;r<height;r++){
+        for(let c=0;c<width;c++){
+            let tile =document.createElement("span");
+            tile.id=r.toString() + "-"+c.toString();
             tile.classList.add("tile");
-            tile.innerText = "";
+            tile.innerText="";
             document.getElementById("board").appendChild(tile);
         }
     }
-
 
     document.addEventListener("keyup", (e) => {
         if (gameOver) return; 
@@ -63,31 +56,30 @@ function intialize() {
             document.getElementById("answer").innerText = word;
         }
 
-    })
+        })
 }
 
-
-function update() {
-    let correct = 0;
-    for (let c = 0; c < width; c++) {
+function update(){
+    let correct=0;
+    for(let c=0;c<width;c++){
         let currTile = document.getElementById(row.toString() + '-' + c.toString());
-        let letter = currTile.innerText;
+        let letter=currTile.innerText;
 
-        
-        if (word[c] == letter) {
+        if (word[c]==letter){
             currTile.classList.add("correct");
-            correct += 1;
-        } 
-        else if (word.includes(letter)) {
+            correct+=1;
+        }
+        else if(word.includes(letter)){
             currTile.classList.add("present");
-        } 
-        else {
+
+        }
+        else{
             currTile.classList.add("absent");
         }
-
-        if (correct == width) {
-            gameOver = true;
+        if (correct==width){
+            gameOver=true;
         }
-
     }
 }
+
+
